@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block navmenus %}
+    <ul class="nav navbar-nav">
+        <li><a href="/">Главная</a></li>
+        <li><a href="/trips">Найти поездку<span class="sr-only">(current)</span></a></li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+               aria-haspopup="true" aria-expanded="false">Информация<span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li><a href="#">О сервисе</a></li>
+                <li><a href="#">Удобство</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Стать водителем</a></li>
+            </ul>
+        </li>
+    </ul>
+{% endblock %}
+{% block content %}
+
+{% endblock %}
