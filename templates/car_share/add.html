@@ -8,9 +8,10 @@
 {% endblock %}
 
 {% block content %}
-
-	<form method = "POST" class = "post-form">{% csrf_token %}
+	<form method = "POST" class = "post-form form-horizontal">{% csrf_token %}
+        <div class="form-group">
 		{{ form.as_p  }}
+        </div>
 		<button type = "submit" class = "save btn btn-default">Сохранить</button>
 	</form>
 {% endblock %}

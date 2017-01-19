@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from django.template import loader
+from django.utils import timezone
 from .forms import TravellingForm
 from .models import Travelling
 
@@ -12,7 +13,7 @@ def index(request):
 def trips(request):
     template = loader.get_template('car_share/trips.html')
     context = {
-        'data': Travelling.objects.all(),
+        'travellings': Travelling.objects.all(),
     }
     return HttpResponse(template.render(context, request))
 
@@ -23,6 +24,7 @@ def add_trip(request):
         if form.is_valid():
             trip = form.save(commit=False)
             trip.save()
+            trip.created_at = timezone.now()
             return redirect('/trips')
     else:
         form = TravellingForm()

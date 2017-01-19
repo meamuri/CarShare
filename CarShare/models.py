@@ -1,18 +1,19 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
 import datetime
 
 
 class Travelling(models.Model):
     city_from = models.CharField(max_length=128)
     city_to = models.CharField(max_length=128)
-    start_time = models.DateTimeField()
-    end_time = models.DateTimeField()
+    start_time = models.DateTimeField(default=datetime.datetime(2017, 10, 20, 10, 0))
+    end_time = models.DateTimeField(default=timezone.now())
 
     created_at = models.DateTimeField(default=datetime.datetime(2012, 3, 1, 10, 0))
-    driver_fullname = models.CharField(max_length=255, default='default')
-    phone = models.CharField(max_length=32, default='default')
-    car_model = models.CharField(max_length=128, default='default')
+    driver_fullname = models.CharField(max_length=255, default='fullname')
+    phone = models.CharField(max_length=32, default='123456789')
+    car_model = models.CharField(max_length=128, default='model')
 
 
 class Profile(models.Model):

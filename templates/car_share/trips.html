@@ -4,9 +4,14 @@
         <li><a href="{% url 'CarShare:index' %}">Главная</a></li>
         <li><a href="{% url 'CarShare:trips' %}">Найти поездку<span class="active sr-only">(current)</span></a></li>
     </ul>
+    <ul class="nav navbar-nav navbar-right">
+        <li><a href="{% url 'CarShare:add' %}">Добавить поездку</a></li>
+      </ul>
 {% endblock %}
 
 {% block content %}
+
+    <hr>
 <table class="table table-striped">
     <tr>
         <th>Откуда</th>
@@ -14,14 +19,14 @@
         <th>Дата отъезда:</th>
         <th>Дата прибытия:</th>
     </tr>
-{#<#list words as word>#}
-{#    <tr>#}
-{#        <td>${word.spelling}</td>#}
-{#        <td>${word.valueInLanguage}</td>#}
-{#        <td>${word.trainingTimes}</td>#}
-{#        <td>${word.positiveAnswers}</td>#}
-{#    </tr>#}
-{#</#list>#}
+{% for travel in travellings %}
+    <tr>
+        <th>{{ travel.city_from }} </th>
+        <th>{{ travel.city_from }} </th>
+        <th>{{ travel.strat_time }} </th>
+        <th>{{ travel.end_time }} </th>
+    </tr>
+{% endfor %}
 
 </table>
 {% endblock %}
