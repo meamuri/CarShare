@@ -2,8 +2,8 @@
 
 {% block navmenus %}
     <ul class="nav navbar-nav">
-        <li><a href="/">Главная<span class="sr-only">(current)</span></a></li>
-        <li><a href="/trips">Найти поездку</a></li>
+        <li><a href="{% url 'CarShare:index' %}">Главная<span class="active sr-only">(current)</span></a></li>
+        <li><a href="{% url 'CarShare:trips' %}">Найти поездку</a></li>
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                aria-haspopup="true" aria-expanded="false">Информация<span class="caret"></span>
