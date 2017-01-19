@@ -1,7 +1,4 @@
 from django.contrib import admin
-from .models import Car, Trip, Passenger, Driver
+from .models import Travelling
 
-admin.site.register(Car)
-admin.site.register(Driver)
-admin.site.register(Passenger)
-admin.site.register(Trip)
+admin.site.register(Travelling)

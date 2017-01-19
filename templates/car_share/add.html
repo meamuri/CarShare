@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block navmenus %}
+    <ul class="nav navbar-nav">
+        <li><a href="{% url 'CarShare:index' %}">Главная</a></li>
+        <li><a href="{% url 'CarShare:trips' %}">Найти поездку</a></li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+
+	<form method = "POST" class = "post-form">{% csrf_token %}
+		{{ form.as_p  }}
+		<button type = "submit" class = "save btn btn-default">Сохранить</button>
+	</form>
+{% endblock %}

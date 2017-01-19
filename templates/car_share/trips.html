@@ -3,19 +3,25 @@
     <ul class="nav navbar-nav">
         <li><a href="{% url 'CarShare:index' %}">Главная</a></li>
         <li><a href="{% url 'CarShare:trips' %}">Найти поездку<span class="active sr-only">(current)</span></a></li>
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-               aria-haspopup="true" aria-expanded="false">Информация<span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu">
-                <li><a href="#">О сервисе</a></li>
-                <li><a href="#">Удобство</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">Стать водителем</a></li>
-            </ul>
-        </li>
     </ul>
 {% endblock %}
-{% block content %}
 
+{% block content %}
+<table class="table table-striped">
+    <tr>
+        <th>Откуда</th>
+        <th>Куда</th>
+        <th>Дата отъезда:</th>
+        <th>Дата прибытия:</th>
+    </tr>
+{#<#list words as word>#}
+{#    <tr>#}
+{#        <td>${word.spelling}</td>#}
+{#        <td>${word.valueInLanguage}</td>#}
+{#        <td>${word.trainingTimes}</td>#}
+{#        <td>${word.positiveAnswers}</td>#}
+{#    </tr>#}
+{#</#list>#}
+
+</table>
 {% endblock %}
