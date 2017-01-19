@@ -36,4 +36,4 @@ def to_book(request, id):
     context = {
         'travellings': res,
     }
-    render(request, 'car_share/info.html', context)
+    return render(request, 'car_share/info.html', context)

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block navmenus %}
+    <ul class="nav navbar-nav">
+        <li><a href="{% url 'CarShare:index' %}">Главная</a></li>
+        <li><a href="{% url 'CarShare:trips' %}">Найти поездку</a></li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+    <div class="jumbotron">
+        <h2>Спасибо за использование нашего сервиса!</h2>
+        <hr>
+
+        <table class="table table-striped">
+        <tr>
+            <th>ФИО</th>
+            <th>{{ travellings.driver_fullname }}</th>
+        </tr>
+        <tr>
+            <th>Модель машины</th>
+            <th>{{ travellings.car_model }}</th>
+        </tr>
+        <tr>
+            <th>Телефон</th>
+            <th>{{ travellings.phone }}</th>
+        </tr>
+        </table>
+        <p>
+        Внимание! Это информация о вашем водителе.
+            Сохраните ее скорее, пока наш заказчик не увидел, что у нас нет
+            отправки нотификейшенов, личного кабинета или чего-то еще,
+            что помогло бы воостановить эту информацию!
+            <br>
+            С уважением, команда OhWaitCars
+        </p>
+        <p><a class="btn btn-primary btn-lg" href="{% url 'CarShare:trips' %}" role="button">Назад к поездкам</a></p>
+    </div>
+{% endblock %}
