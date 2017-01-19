@@ -29,3 +29,11 @@ def add_trip(request):
     else:
         form = TravellingForm()
         return render(request, 'car_share/add.html', {'form' : form})
+
+
+def to_book(request, id):
+    res = get_object_or_404(Travelling, pk=id)
+    context = {
+        'travellings': res,
+    }
+    render(request, 'car_share/info.html', context)
