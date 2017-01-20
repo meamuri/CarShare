@@ -10,25 +10,31 @@
 {% endblock %}
 
 {% block content %}
-
+{% if not travellings %}
+    <div class="alert alert-warning" role="alert">Пока нет никаких данных.
+        <a href="{% url 'CarShare:add' %}">Добавить</a>?</div>
+    <p></p>
+{% else %}
     <hr>
-<table class="table table-striped">
-    <tr>
-        <th>Откуда</th>
-        <th>Куда</th>
-        <th>Дата отъезда:</th>
-        <th>Дата прибытия:</th>
-        <th></th>
-    </tr>
-{% for travel in travellings %}
-    <tr>
-        <th>{{ travel.city_from }} </th>
-        <th>{{ travel.city_from }} </th>
-        <th>{{ travel.start_time }} </th>
-        <th>{{ travel.end_time }} </th>
-        <th><a href="{% url 'CarShare:to_book' travel.id %}">Поехали!</a></th>
-    </tr>
-{% endfor %}
+    <table class="table table-striped">
+        <tr>
+            <th>Откуда</th>
+            <th>Куда</th>
+            <th>Дата отъезда:</th>
+            <th>Дата прибытия:</th>
+            <th></th>
+        </tr>
+    {% for travel in travellings %}
+        <tr>
+            <th>{{ travel.city_from }} </th>
+            <th>{{ travel.city_to }} </th>
+            <th>{{ travel.start_time }} </th>
+            <th>{{ travel.end_time }} </th>
+            <th><a href="{% url 'CarShare:to_book' travel.id %}">Поехали!</a></th>
+        </tr>
+    {% endfor %}
+{% endif %}
+
 
 </table>
 {% endblock %}

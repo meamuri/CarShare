@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from django.template import loader
 from django.utils import timezone
-from .forms import TravellingForm
+from .forms import TravellingForm, TravellingDeleteForm
 from .models import Travelling
 
 
@@ -34,6 +34,13 @@ def add_trip(request):
 def to_book(request, id):
     res = get_object_or_404(Travelling, pk=id)
     context = {
-        'travellings': res,
+        'fullname': res.driver_fullname,
+        'phone': res.phone,
+        'car': res.car_model,
     }
+    form = TravellingDeleteForm(request.POST, instance=res)
+    if not form.is_valid():
+        return redirect('/')
+
+    res.delete()
     return render(request, 'car_share/info.html', context)
