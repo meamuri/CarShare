@@ -15,6 +15,9 @@ class Travelling(models.Model):
     phone = models.CharField(max_length=32, default='123456789')
     car_model = models.CharField(max_length=128, default='model')
 
+    def __str__(self):
+        return self.driver_fullname + '; on the car - ' + self.car_model + '. Number: ' + self.phone;
+
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
